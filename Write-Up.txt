@@ -1,0 +1,31 @@
+THOUGHT PROCESS
+
+Since it is not useful to simply look at the prices and price histories of two stocks,
+we need need something more useful.
+
+That something can be the tracking of the ratios between two correlated stocks.
+
+We can do this by modifying the already existing graph component we had created in the previous step
+to better fit what we are trying to do (track pair stock ratios).
+
+Here we modify:
+- the graph schema (what data we want to work with)
+- the graph itself (what we want to show on the graph)
+- the function that updates the graph (for real time analysis)
+
+But to make sure that we recieve the correct data, we need to update our DataManipulator function
+(what our graph update function relies on)
+
+We need:
+- The ratio between stock A and stock B
+- the upper and lower bounds (where we want our triggers to be)
+
+With these changes, we are now able to track the ratios between two given stocks and be alerted when
+the ratios break either our upper or lower bounds (adjustable)
+
+INSIGHTS FOR TRADERS:
+Given two historically correlated stocks, the ratios between the stocks is 1 (on average). But when
+the ratios between the stocks deviate from that average (set by the upper and lower bounds), there 
+is a possible trade opportunity (alert is triggered). With alerts in place to indicate these
+opportunities, a trader can look at other factors (on top of the alert) to decide whether or not to
+take a trade.
